@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Test Quiz</title>
+    <style>
+        /* Styles for compact layout */
+        .question {
+            min-height: auto; /* Reduce spacing */
+            display: none; /* Hide question text until cards flip */
+        }
+        .card {
+            transition: transform 0.6s; /* Flip delay */
+        }
+        /* More compact overall styling */
+        body {
+            font-size: 14px; /* Smaller font size */
+            line-height: 1.2; /* Compact lines */
+        }
+    </style>
+    <script>
+        function flipCard(cardId) {
+            const card = document.getElementById(cardId);
+            card.classList.toggle('flipped'); // Flip the card
+            const question = document.querySelector('.question');
+            question.style.display = card.classList.contains('flipped') ? 'block' : 'none'; // Show or hide question text
+        }
+    </script>
+</head>
+<body>
+    <div class="quiz">
+        <div class="question">
+            <p>What is the capital of France?</p>
+        </div>
+        <div class="card" id="card1" onclick="flipCard('card1')">
+            <div class="card-flip">
+                <div class="card-front">
+                    <p>?</p> <!-- Question Card -->
+                </div>
+                <div class="card-back">
+                    <p>Paris</p>  <!-- Answer Card -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
